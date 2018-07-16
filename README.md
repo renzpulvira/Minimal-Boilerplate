@@ -13,4 +13,9 @@
 4. SMACCS ready file structure.
 5. Useful mixins.
 
+### How to use
+1. Open your terminal and cd to the folder.
+2. inside the folder run `npm install`.
+3. run `gulp watch`.
+
 > THATS IT!, HAPPY CODING !
