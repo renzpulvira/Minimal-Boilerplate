@@ -1,0 +1,111 @@
+
+
+// Responsive Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "xs" {
+    @media screen and (max-width: 575px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "sm-down" {
+    @media screen and (max-width: 767px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "sm" {
+    @media (min-width: 576px) and (max-width: 767px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "sm-up" {
+    @media screen and (min-width: 576px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "md-down" {
+    @media screen and (max-width: 991px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "md" {
+    @media (min-width: 768px) and (max-width: 991px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "md-up" {
+    @media screen and (min-width: 768px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "lg-down" {
+    @media screen and (max-width: 1199px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "lg" {
+    @media (min-width: 992px) and (max-width: 1199px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "lg-up" {
+    @media screen and (min-width: 992px) {
+       @content;
+    }
+  }
+
+  @else if $breakpoint == "xl" {
+    @media screen and (min-width: 1200px) {
+       @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin transition($properties...) {
+  -webkit-transition: $properties;
+  -moz-transition: $properties;
+  -ms-transition: $properties;
+  -o-transform: $properties;
+  transition: $properties;
+}
+@mixin transform($properties...) {
+  -webkit-transform: $properties;
+  -moz-transform: $properties;
+  -ms-transform: $properties;
+  -o-transform: $properties;
+  transform: $properties;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// Fonts
+@mixin font-face($fontFamily, $path, $fileName, $svgLabel, $fontWeight: normal, $fontStyle: normal) {
+   @font-face{
+    font-family: $fontFamily;
+    src: url('#{$path + $fileName}.eot');
+    src: url('#{$path + $fileName}.eot?#iefix') format('embedded-opentype'), url('#{$path + $fileName}.woff') format('woff'), url('#{$path + $fileName}.ttf') format('truetype'), url('#{$path + $fileName}.svg##{$svgLabel}') format('svg');
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+  }
+}

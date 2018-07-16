@@ -1,0 +1,29 @@
+{
+  "name": "rbranding-misty-frontend",
+  "version": "1.0.0",
+  "description": "A boilerplate for Bootstrap projects using Sass 7-1 architecture and JS revealing module patterns plus gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "T",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.2.1",
+    "gulp-util": "^3.0.8",
+    "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "flickity": "^2.1.0",
+    "hamburgers": "^0.9.3",
+    "jquery-scroll-lock": "^3.1.3",
+    "swiper": "^4.2.2"
+  }
+}

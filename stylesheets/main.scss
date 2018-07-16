@@ -1,0 +1,25 @@
+@import
+  "vendors/fontawesome/fontawesome",
+  "vendors/bootstrap/bootstrap";
+
+// Configurations
+@import
+  "utils/variables",
+  "utils/mixins";
+
+// Some base stuffs
+@import
+  "base/base";
+
+// D.R.Y
+@import
+  "layouts/header",
+  "layouts/footer";
+
+// Your awesome components
+@import
+  "components/buttons";
+
+// Pages cause why not
+@import
+  "pages/home";
