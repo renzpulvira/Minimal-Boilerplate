@@ -9,7 +9,7 @@
 2. Fontawesome 5
 3. A gulpfile for 
    crossbrowser prefixes
-   and auto-reload as you save your file.
+   and browsersync.
 4. SMACCS ready file structure.
 5. Useful mixins.
 
