@@ -6,12 +6,11 @@
 
 ### What's inside
 1. Bootstrap 4.
-2. Fontawesome 5
-3. A gulpfile for 
+2. A gulpfile for 
    crossbrowser prefixes
    and browsersync.
-4. SMACCS ready file structure.
-5. Useful mixins.
+3. SMACCS ready file structure.
+4. Useful mixins.
 
 ### How to use
 1. Open your terminal and cd to the folder.
