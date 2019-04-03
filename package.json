@@ -1,5 +1,5 @@
 {
-  "name": "rbranding-misty-frontend",
+  "name": "minimal-boilerplate",
   "version": "1.0.0",
   "description": "A boilerplate for Bootstrap projects using Sass 7-1 architecture and JS revealing module patterns plus gulp",
   "main": "index.js",
@@ -18,12 +18,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.2.1",
     "gulp-util": "^3.0.8",
-    "watch": "^1.0.2"
-  },
-  "dependencies": {
-    "flickity": "^2.1.0",
-    "hamburgers": "^0.9.3",
-    "jquery-scroll-lock": "^3.1.3",
-    "swiper": "^4.2.2"
+    "watch": "^1.0.2",
+    "jquery-scroll-lock": "^3.1.3"
   }
 }
