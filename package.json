@@ -1,24 +1,39 @@
 {
-  "name": "minimal-boilerplate",
+  "name": "template",
   "version": "1.0.0",
-  "description": "A boilerplate for Bootstrap projects using Sass 7-1 architecture and JS revealing module patterns plus gulp",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "T",
+  "author": "",
   "license": "ISC",
+  "browserslist": [
+    "last 2 versions",
+    "safari 5",
+    "ie 10",
+    "ie 6",
+    "ie 7",
+    "ie 8",
+    "ie 9",
+    "opera 12.1",
+    "ios 6",
+    "android 4"
+  ],
   "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
-    "gulp-plumber": "^1.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.2.1",
-    "gulp-util": "^3.0.8",
-    "watch": "^1.0.2",
-    "jquery-scroll-lock": "^3.1.3"
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0"
   }
 }

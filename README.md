@@ -1,20 +1,29 @@
-# A Minimal Web ready boilerplate
-
-### Requirements
-1. Nodejs
-2. Npm
+## Project Ready Boilerplate
 
 ### What's inside
-1. Bootstrap 4.
-2. A gulpfile for 
-   crossbrowser prefixes
-   and browsersync.
-3. SMACCS ready file structure.
-4. Useful mixins.
+  1. BrowserSync - Sync file changes and interactions across many devices.
+  2. Babel - convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
+  3. Sass - Convert Sass/Scss files to css with sourcemaps.
+  4. Autoprefixer - No need to add vendor prefixers, Autoprefixer does that for you.
 
 ### How to use
-1. Open your terminal and cd to the folder.
-2. inside the folder run `npm install`.
-3. run `gulp watch`.
+```bash
+npm install
+gulp watch
+```
 
-> THATS IT!, HAPPY CODING !
+### FAQ
+#### OS Issues
+I'm having some error on OS Compatibility
+
+```bash
+Try running
+
+npm rebuild
+````
+
+`Then try to run `gulp watch` again.`
+
+### ACCESSIBILITY
+What if i wan't to have multiple sass files with different file locations.
+`You can do that, just edit and link your scss/sass file on _main.scss_.`
