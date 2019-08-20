@@ -1,4 +1,4 @@
-## Project Ready Boilerplate
+## Project Ready boilerplate
 
 ### What's inside
   1. BrowserSync - Sync file changes and interactions across many devices.
@@ -8,22 +8,15 @@
 
 ### How to use
 ```bash
-npm install
-gulp watch
+> npm install
+> gulp watch
 ```
 
 ### FAQ
 #### OS Issues
 I'm having some error on OS Compatibility
-
-```bash
 Try running
-
-npm rebuild
+```bash
+> npm rebuild
 ````
-
-`Then try to run `gulp watch` again.`
-
-### ACCESSIBILITY
-What if i wan't to have multiple sass files with different file locations.
-`You can do that, just edit and link your scss/sass file on _main.scss_.`
+Then try to run `gulp watch` again.

@@ -1,14 +1,5 @@
 "use strict";
 
-function viewportSize() {
-  var wx = $(window).height();
-  var wy = $(window).width();
-  console.log({
-    ViewportHeight: wx,
-    ViewportWidth: wy
-  });
-}
-
 function scroll() {
   $('.anchor-element').click(function (e) {
     e.preventDefault();
@@ -33,19 +24,9 @@ function smooth_scroll() {
       }
     });
   });
-}
+} // Run functions on load
 
-var a = function a() {
-  console.log('fuck');
-};
 
 $(function () {
   scroll();
-  smooth_scroll();
-  a();
 });
-$(window).on('load resize', function () {
-  viewportSize();
-}); // resize
-
-$(window).on('load scroll', function () {});

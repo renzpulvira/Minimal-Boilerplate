@@ -1,77 +1,58 @@
-// If you don't know what this is
-// or you can't read javascript. (and i suggest you learn it)
-// This file save your ass some time i guess.
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var bs = require('browser-sync').create();
-var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
-var cssnano = require('gulp-cssnano');
-var sourcemaps = require('gulp-sourcemaps');
-var babel = require('gulp-babel');
+const { src, dest, watch, series, parallel } = require('gulp');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass');
+const babel = require('gulp-babel');
+const bs = require('browser-sync').create();
+const postcss = require('gulp-postcss');
+const rename = require('gulp-rename');
 
-var plumber = require('gulp-plumber');
-var gutil = require('gulp-util');
+const files = {
+    scssPath: "./scss/**/*.scss",
+    jsPath: "./js/*.js",
+}
 
-var gulp_src = gulp.src;
-gulp.src = function () {
-  return gulp_src.apply(gulp, arguments)
-    .pipe(plumber(function (error) {
-      gutil.log(gutil.colors.red('Error (' + error.plugin + '): ' + error.message));
-      this.emit('end');
-    })
+function scssTask() {
+    return(
+        src(files.scssPath)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .on("error", sass.logError)
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(sourcemaps.write())
+        .pipe(dest("./css"))
+        .pipe(bs.reload({ stream: true }))
     );
-};
+}
 
-gulp.task('babel', done => {
-  gulp.src('assets/js/main.js')
-    .pipe(babel({
-      presets: ['@babel/preset-env']
-    }))
-    .pipe(rename(function(path){
-      path.basename = 'index';
-    }))
-    .pipe(gulp.dest('./assets/js/dist/'))
-  done();
-})
+function reload() {
+    bs.reload();
+}
 
-gulp.task('sass', done => {
-  return gulp.src('assets/scss/main.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('assets/css'))
-    // Remove Commenet for Production
-    // .pipe(rename({ suffix: '.min' }))
-    // .pipe(cssnano())
-    // .pipe(gulp.dest('stylesheets'))
-    .pipe(bs.reload({
-      stream: true
-    }))
+function jsTask() {
+    return(
+        src(files.jsPath)
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
+        .pipe(rename('script.js'))
+        .pipe(dest('dist'))
+        .pipe(bs.reload({ stream: true }))
+    );
+}
 
-  done();
-});
-
-gulp.task('browserSync', done => {
-  bs.init({
-    server: {
-      baseDir: './',
-    },
-    online: true,
-    tunnel: 'liveshare',
-    cors: true,
-  })
-  done();
-})
-
-gulp.task('watch', gulp.series('browserSync', 'sass', 'babel', function (){
-  gulp.watch('assets/scss/include/*.scss', gulp.series('sass'));
-  gulp.watch('assets/scss/pages/*.scss', gulp.series('sass'));
-  gulp.watch('assets/scss/*.scss', gulp.series('sass'));
-  gulp.watch('*.html').on('change', bs.reload);
-  gulp.watch('assets/js/*.js', gulp.series('babel')).on('reload', bs.reload);
-}));
+function watchFiles() {
+    bs.init({
+        server: {
+            baseDir: "./"
+        }
+    })
+    watch('scss/**/*.scss', scssTask).on('change', reload)
+    watch('./*.html').on('change', reload)
+    watch('./js/*.js', jsTask).on('change', reload)
+}
 
 
 
+exports.default = parallel(watchFiles)
